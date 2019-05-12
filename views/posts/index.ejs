@@ -1,0 +1,14 @@
+<h1>Post home, Bitch</h1>
+
+<%posts.forEach(post => {%>
+    <h1><%= post.title%></h1>
+
+    <img src=<%=post.images[0]%>>
+    
+    <h2><%= post.price%></h2>
+    <h2><%= post.description%></h2>
+    <h2><%= post.location%></h2>
+    <h2><%= post.lat%></h2>
+    <h2><%= post.long%></h2>
+
+<%})%>

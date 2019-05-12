@@ -1,0 +1,39 @@
+<h1>Edit this shit</h1>
+
+<form action='/posts/<%=post._id%>?_method=PUT' method="POST">
+    
+    <div style="margin-left: 500px;">
+        <div>
+            <label for="title" name="title">title</label>
+            <input type ="text" name="post[title]" value="<%=post.title%>">
+        </div>
+        <div>
+            <label for="price" name="price">price</label>
+            <input type ="text" name="post[price]" value="<%=post.price%>">
+        </div>
+        <div>
+            <label for="description" name="description">description</label>
+            <input type ="text" name="post[description]" value="<%=post.description%>">
+        </div>
+        <div>
+            <label for="images" name="images">images</label>
+            <input type ="text" name="post[images]" value="<%=post.images%>">
+        </div>
+        <div>
+            <label for="location" name="location">location</label>
+            <input type ="text" name="post[location]" value="<%=post.location%>">
+        </div>
+        <div>
+            <label for="lat" name="lat">Lat</label>
+            <input type ="text" name="post[lat]" value="<%=post.lat%>">
+        </div>
+        <div>
+            <label for="lng" name="lng">Lng</label>
+            <input type ="text" name="post[lng]" value="<%=post.lng%>">
+        </div>
+        <div>
+            <input type ="submit" value="Submit">
+        </div>
+    </div>
+
+</form>
