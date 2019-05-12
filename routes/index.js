@@ -1,14 +1,15 @@
 const express = require('express'),
 	router = express.Router(),
-	{ postRegister } = require('../controllers'),
+	{ userLogout, postRegister, userLogin } = require('../controllers'),
 	{ errorHandler } = require('./../middleware'),
-	passport = require('passport'),
 	passportLocalMongoose = require('passport-local-mongoose');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
 	res.render('index', { title: 'Surf Shop - Home' });
 });
+
+//
 
 router.get('/register', (req, res, next) => {
 	res.send('GET  /register');
@@ -20,13 +21,9 @@ router.get('/login', (req, res, next) => {
 	res.send('GET /login');
 });
 
-router.post(
-	'/login',
-	passport.authenticate('local', {
-		successRedirect: '/',
-		failureRedirect: '/login'
-	})
-);
+router.post('/login', userLogin);
+
+router.get('/logout', userLogout);
 
 router.get('/profile', (req, res, next) => {
 	res.send('GET /profile');
@@ -50,11 +47,6 @@ router.get('/reset/:token', (req, res, next) => {
 
 router.put('/reset/:token', (req, res, next) => {
 	res.send('PUT /reset:token');
-});
-
-router.get('/logout', (req, res, next) => {
-	req.logout();
-	res.send('Bye Dude!!');
 });
 
 module.exports = router;

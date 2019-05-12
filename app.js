@@ -13,9 +13,10 @@ const session = require('express-session');
 const index = require('./routes/index');
 const posts = require('./routes/posts');
 const reviews = require('./routes/reviews');
+const methodOverride = require('method-override');
 
 const app = express();
-
+app.use(bodyParser.urlencoded({ extended: true }));
 // connect to database
 mongoose.connect('mongodb://localhost:27017/surf-shop', { useNewUrlParser: true });
 
@@ -34,6 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 
 // Configure Passport and Sessions
 app.use(
